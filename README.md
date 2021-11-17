@@ -6,9 +6,6 @@
 
 <br>
 
-<h2>Configuração de ambiente (backEnd)</h2>
-
-
 <h2>Configuração de ambiente (frontEnd)</h2>
 <ul>
   <li></li>
@@ -18,6 +15,8 @@
 <div>
   <img src="" width=300px>
 </div>
+
+<h2>Configuração de ambiente (backEnd)</h2>
 
 <h4 align="center"> 
   🚧  SGMEI-view 🚀 Em construção...  🚧
