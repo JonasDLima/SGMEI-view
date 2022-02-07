@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-card-title>Alterar Serviço</mat-card-title>
+    <form>
+       <mat-form-field>
+           <input matInput placeholder="Descrição" [(ngModel)]="serviceProvided.name" name="descricao" type="text">
+       </mat-form-field> 
+       <mat-form-field>
+           <input matInput placeholder="Preço (R$)" [(ngModel)]="serviceProvided.price" name="price" type="text">
+       </mat-form-field>
+       <mat-form-field>
+        <input matInput placeholder="Tipo de Serviço" [(ngModel)]="serviceProvided.type" name="type" type="text">
+        </mat-form-field> 
+    </form>
+
+    <button mat-stroked-button (click)="updateServiceProvided()" color="primary">
+        Atualizar
+    </button>
+    
+    <button mat-stroked-button (click)="cancela()">
+        Cancelar
+    </button>
+</mat-card>
+

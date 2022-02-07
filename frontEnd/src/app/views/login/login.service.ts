@@ -1,27 +1,31 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AppConstants } from 'src/app/app-constants';
-import { User } from 'src/app/components/models/user';
+import { Auth, User } from 'src/app/components/models/user';
 import jwt_decode from 'jwt-decode';
+import { ResponseAuth } from 'src/app/components/models/ResponseAuth';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
+  url = "http://localhost:8080"
+
   constructor(
     private http: HttpClient
     ) { }
 
-  singIn(usuario: User){
-    return this.http.post(String(AppConstants.baseLogin), JSON.stringify(usuario)).subscribe(response => {
-      if(response && JSON.parse(JSON.stringify(response)).Authorization) {
-        const token = JSON.parse(JSON.stringify(response)).Authorization;
-        localStorage.setItem("token", token);
-        return true;
+  async singIn(usuario: Auth): Promise<boolean>{
+    let _response = false;
+    await this.http.post<ResponseAuth>(`${this.url}/auth`, usuario)
+      .subscribe(response => {
+        localStorage.setItem("token", response.token);
+        _response = true;
+      },
+      error => {
+        console.log(error)
       }
-
-      return false;
-    });
+    );
+    return _response;
   }
 
   getAuthorizationToken() {

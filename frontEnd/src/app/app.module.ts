@@ -14,19 +14,24 @@ import { MatListModule } from '@angular/material/list'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './views/login/login.component';
-import { CadastrarUsuarioComponent } from './views/cadastrar-usuario/cadastrar-usuario.component';
 import { ComponentsModule } from './components/components.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './views/home/home.component';
 
 import { HttpInterceptorProviders } from './components/http-interceptors/';
+import { ProductComponent } from './views/product/product.component';
+import { ServicesProvidedComponent } from './views/services-provided/services-provided.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { HomeContentComponent } from './views/home-content/home-content.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    CadastrarUsuarioComponent,
-    HomeComponent
+    HomeComponent,
+    ProductComponent,
+    ServicesProvidedComponent,
+    HomeContentComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,10 +47,16 @@ import { HttpInterceptorProviders } from './components/http-interceptors/';
     MatButtonModule,
     HttpClientModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatSnackBarModule
+  ],
+  exports: [
+    HomeComponent,
+    ProductComponent,
+    ServicesProvidedComponent,
   ],
   providers: [
-    HttpInterceptorProviders
+    HttpInterceptorProviders,
   ],
   bootstrap: [AppComponent]
 })
